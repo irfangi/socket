@@ -9,6 +9,8 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
 	socket.on('pesanBaru', (pesan) => {
+		console.log('ddd');
+		
 		io.emit('pesanBaru', pesan);
 		console.log('pesan baru : ' + pesan);
 	});
@@ -16,4 +18,5 @@ io.on('connection', (socket) => {
 		console.log('user disconnect');
 	});
 });
-app.listen(port, () => console.log('runing at port ' + port));
+
+http.listen(port,()=>console.log('runing on port :'+port))
